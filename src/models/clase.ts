@@ -1,25 +1,20 @@
+import { Clase } from "../interfaces/clase.interface";
 import { Schema, Types, model, Model } from "mongoose";
-import { User } from "../interfaces/user.interface";
 
-const UserSchema = new Schema<User>(
+
+const ClaseSchema = new Schema<Clase>(
   {
-    name: {
+    nombre: {
       required: true,
       type: String,
       unique: true,
     },
-    password: {
+    descripcion: {
+      type: String
+    },
+    precio: {
       type: String,
       required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    description: {
-      type: String,
-      default: "",
     },
     activo: {
         type: Number,
@@ -33,5 +28,5 @@ const UserSchema = new Schema<User>(
   }
 );
 
-const UserModel = model("users", UserSchema);
-export default UserModel;
+const ClaseModel = model("clases", ClaseSchema);
+export default ClaseModel;
